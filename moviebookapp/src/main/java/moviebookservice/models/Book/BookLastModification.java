@@ -1,15 +1,15 @@
-package moviebookservice.models;
+package moviebookservice.models.Book;
 
-// Used to store book database API calls note fields data
+// Used to store book database API calls last modification fields data
 
-public class BookNote {
+public class BookLastModification {
 
 	private String type;
 	private String value;
 
-	public BookNote() {}
+	public BookLastModification() {}
 
-	public BookNote(String type, String value) {
+	public BookLastModification(String type, String value) {
 		this.type = type;
 		this.value = value;
 	}

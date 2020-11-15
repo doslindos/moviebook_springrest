@@ -1,4 +1,4 @@
-package moviebookservice.models;
+package moviebookservice.models.Book;
 
 // Used to store book databases book creation data
 

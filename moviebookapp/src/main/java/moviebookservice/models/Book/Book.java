@@ -1,4 +1,4 @@
-package moviebookservice.models;
+package moviebookservice.models.Book;
 
 // Book java object to be filled with data from external Book Database
 

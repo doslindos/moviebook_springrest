@@ -1,19 +1,37 @@
 <?php
-include 'httpCalls/Calls.php';
-include '.php/AppSettings.php';
-# Initialize GET Objects for movie and book
-$bookGetCaller = new GET($_BASE_URL);
-$movieGetCaller = new GET($_BASE_URL);
+include_once '.php/AppSettings.php';
+include_once 'httpCalls/CallHandler.php';
+session_start();
 
-# When ISBN is submitted make the request to Book API
-if (isset($_GET['ISBN'])){ $bookGetCaller->makeRequest("getBook/ISBN/" . strval($_GET['ISBN'])); }
+#Initialize jwt token
+if (!isset($_SESSION['jwt'])){ $_SESSION['jwt'] = ""; }
 
-# When Movie title is submitted make the request to Movie API
-if (isset($_GET['movieTitle'])){ $bookGetCaller->makeRequest("getMovie/title/" . strval($_GET['movieTitle'])); }
+# Initialize callHandler object
+if (!isset($_SESSION['callHandler'])) { $_SESSION['callHandler'] = new Handler($_BASE_URL);}
+
+# When GET values are submitted
+if (!empty($_GET)){ 
+	$result = $_SESSION['callHandler'] -> get_call($_GET, $_SESSION['jwt']); 
+}
+
+# When POST values are submitted
+if (!empty($_POST)){
+	$result = $_SESSION['callHandler'] -> post_call($_POST, $_SESSION['jwt']);
+	
+	# If authentication post is made store jwt in session
+	if (isset($result['jwt'])){ $_SESSION['jwt'] = $result['jwt']; }
+}
+
 ?>
 
 <html>
 <body>
+	<form action = "" method = "POST">
+	Username: <input type = "text" name = "username" />
+	Password: <input type = "text" name = "password" />
+	<input type = "submit" />
+	</form>
+	
 	<form action = "" method = "GET">
 	Book ISBN: <input type = "text" name = "ISBN" />
 	<input type = "submit" />

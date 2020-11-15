@@ -1,4 +1,4 @@
-package moviebookservice.models;
+package moviebookservice.models.Book;
 
 import java.util.List;
 

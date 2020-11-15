@@ -1,4 +1,4 @@
-package moviebookservice.models;
+package moviebookservice.models.Book;
 
 // Used to store book database API calls type fiels data
 

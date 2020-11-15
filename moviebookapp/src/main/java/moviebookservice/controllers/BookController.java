@@ -1,6 +1,6 @@
 package moviebookservice.controllers;
 
-import moviebookservice.models.Book;
+import moviebookservice.models.Book.Book;
 
 import org.springframework.web.client.RestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class BookController {
 	// Fetch and define Gson initialized in application file
 	@Autowired
 	private Gson gson;
-	
+
 	// Map /getBook call to this function with book_id as parameter
 	@RequestMapping("/ISBN/{book_id}")
 	public Book getBookInfo(@PathVariable("book_id") String bookID) {
@@ -43,4 +43,5 @@ public class BookController {
 		// Return the book object as response
 		return bookjson;
 	}
+
 }

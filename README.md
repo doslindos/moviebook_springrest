@@ -37,13 +37,13 @@ the application with cUrl.
 tou do not need to be inside the project folders to make these command.
 <br />Just check if your system has curl by typing `curl --version`
 <br />If the terminal gave you good new, firstly fetch the Json Web Token by calling in Windows systems: 
-`curl -X POST -v -H "Content-Type: application/json" -d "{"""username""":"""test""", """password""":"""test"""}" http://localhost:8081/authenticate`
-, but in other systems you don't have to get so weird with the "" just type:
-`curl -X POST -v -H "Content-Type: application/json" -d "{'username':'test', 'password':'test'}" http://localhost:8081/authenticate`
+<br />`curl -X POST -v -H "Content-Type: application/json" -d "{"""username""":"""test""", """password""":"""test"""}" http://localhost:8081/authenticate`
+<br />, but in other systems you don't have to get so weird with the "" just type:
+<br />`curl -X POST -v -H "Content-Type: application/json" -d "{'username':'test', 'password':'test'}" http://localhost:8081/authenticate`
 <br />The command should return this kind of provoking string, like:<br />
 {"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNjA1NTI5NDU2LCJpYXQiOjE2MDU0OTM0NTZ9.JfjLLJVUh1SYGzZfbUYisKEbKYsAYPuVa8gpoBa392s"}
 <br />Next copy only the character snake and paste it to your GET command, like this:
-`curl -X GET -v -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNjA1NTI5NDU2LCJpYXQiOjE2MDU0OTM0NTZ9.JfjLLJVUh1SYGzZfbUYisKEbKYsAYPuVa8gpoBa392s" localhost:8081/getMovie/batman`
+<br />`curl -X GET -v -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNjA1NTI5NDU2LCJpYXQiOjE2MDU0OTM0NTZ9.JfjLLJVUh1SYGzZfbUYisKEbKYsAYPuVa8gpoBa392s" localhost:8081/getMovie/batman`
 <br />By changing the ending of the url you can search different things.
 <br />For movies use localhost:8081/getMovie/<title>/<year>/<plot>
 <br /><title> is a must and for <plot> only "short" or "full" are allowed

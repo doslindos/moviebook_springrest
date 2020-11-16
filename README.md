@@ -2,6 +2,7 @@
 
 ## Spring
 * Tested with Java 8 and gradle
+
 <br />In terminal, inside projects folder "moviebookapp" run:<br /> `gradlew bootRun` to start the Spring REST API.
 <br />Once Spring is running (leave it running for PHP client or curl to work) 
 you can access the API with PHP client or using cUrl.
@@ -9,6 +10,7 @@ you can access the API with PHP client or using cUrl.
 
 ## PHP client
 * Tested with PHP 7.4.11
+
 <br />In a new terminal, inside projects folder "php_client" run:<br /> `php -S localhost:8080 index.php`
 to start the php server with index.php template.
 <br />Next go to your browser and type address localhost:8080

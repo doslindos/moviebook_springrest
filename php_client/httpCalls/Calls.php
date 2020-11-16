@@ -96,7 +96,7 @@ class POST {
 		
 		# Convert postable fields	
 		$post_fields = json_encode($post_fields);
-
+		
 		# Initialize curl
 		$curl = curl_init($this -> base_url . $url_end);
 

@@ -16,3 +16,5 @@ target
 
 *.swp
 *.swo
+
+moviebookapp/src/main/resources/application.properties

@@ -19,8 +19,11 @@ if (!empty($_POST)){
 	$result = $_SESSION['callHandler'] -> post_call($_POST, $_SESSION['jwt']);
 	
 	# If authentication post is made store jwt in session
-	if (isset($result['jwt'])){ $_SESSION['jwt'] = $result['jwt']; }
+	if (isset($result['jwt'])){ if (strlen($result['jwt']) === 129 ){ $_SESSION['jwt'] = $result['jwt'];} }
 }
+
+if ($_SESSION['jwt'] == "" ){ echo "JWT is not fetched, write test to Username and Password then Submit Query to fetch it!";}
+else{ echo "JWT fetched! Now you can search books and movies...";}
 
 ?>
 
@@ -39,6 +42,12 @@ if (!empty($_POST)){
 	
 	<form action = "" method = "GET">
 	Movie title: <input type = "text" name = "movieTitle" />
+	Movie year: <input type = "text" name = "movieYear" />
+	Movie plot: <select name = "moviePlot">
+			<option value = "" name = "" /></option>
+			<option value = "short" name = "" />Short</option>
+			<option value = "full" name = "" />Full</option>
+		    </select>
 	<input type = "submit" />
 	</form>
 

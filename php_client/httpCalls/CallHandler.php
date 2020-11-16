@@ -24,9 +24,15 @@ class Handler {
 		
 		# Movie title url
 		else if (isset($get['movieTitle'])){
-			$url = "getMovie/title/" . strval($get['movieTitle']);
+			$url = "getMovie/";
+			$t = strval($get['movieTitle']);
+			$y = strval($get['movieYear']);
+			$p = strval($get['moviePlot']);
+			# Append values to url
+			if (!empty($t)){ $url = $url . $t; }	
+			if (!empty($y)){ $url = $url . "/" . $y; }
+			if (!empty($p)){ $url = $url . "/" . $p; }
 		}
-		
 		return $this -> getCaller -> makeRequest($url, $jwt);
 	}
 

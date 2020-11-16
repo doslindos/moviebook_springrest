@@ -31,11 +31,16 @@ public class MovieController {
 	private Gson gson;
 
 	// Map /title call with title parameter to getMovieInfo
-	@RequestMapping("/title/{title}")
-	public Movie getMovieInfo(@PathVariable("title") String title) {
+	@RequestMapping(value = {"/{title}", "/{title}/{year}", "{title}/{year}/{plot}"})
+	public Movie getMovieInfoByTitle(
+			@PathVariable(value="title") String t, 
+			@PathVariable(required=false, value="year") String y, 
+			@PathVariable(required=false, value="plot") String p
+			) {
+
 		// Use RestTemplate to fetch a String containing Json from Movie Database
 		String jsonString = restTemplate.getForObject(
-				"https://www.omdbapi.com/?apikey=" + apiKey + "&t="+title,
+				"https://www.omdbapi.com/?apikey=" + apiKey + "&t="+t + "&y=" + y + "&plot=" + p,
 			       String.class
 				);
 		
@@ -48,4 +53,5 @@ public class MovieController {
 		// Return Movie java object as response
 		return movie;
 	}	
+	
 }
